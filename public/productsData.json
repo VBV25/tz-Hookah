@@ -1,0 +1,37 @@
+[
+  {
+    "name": "ТОВАР 1",
+    "price": 1690,
+    "id": 1,
+    "category": "Табак",
+    "img": "img1.img"
+  },
+  {
+    "name": "ТОВАР 2",
+    "price": 500,
+    "id": 2,
+    "category": "Табак",
+    "img": "img1.img"
+  },
+  {
+    "name": "ТОВАР 3",
+    "price": 1990,
+    "id": 3,
+    "category": "Табак",
+    "img": "img1.img"
+  },
+  {
+    "name": "ТОВАР 4",
+    "price": 1990,
+    "id": 4,
+    "category": "Табак",
+    "img": "img1.img"
+  },
+  {
+    "name": "ТОВАР 5",
+    "price": 1990,
+    "id": 5,
+    "category": "Табак",
+    "img": "img1.img"
+  }
+]
