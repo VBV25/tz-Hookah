@@ -3,15 +3,32 @@
   --first-color: rgb(255, 255, 255);
   --second-color: rgb(0, 0, 0);
   --second-color-opacity: rgba(28, 29, 34, 0.357);
-  --third-color: rgb(31, 31, 31);
-  --fourth-color: #a1a1a1;
-  --fifth-color: #ff7979;
-  //--sixth-color: #888da7;
-  //--seventh-color: #76c318;
-  //--eighth-color: #f60707;
-  //--ninth-color: #d5d5d5;
-  //--tenth-color: rgb(216, 216, 216);
-  //--eleventh-color:rgb(255, 255, 6);
+  --third-color: #2A2A2A;
+  --fourth-color: #EFA142;
+  --fifth-color: #96C361;   
+  --sixth-color: #5A5A5A;
+
+
+  // --seventh-color: #76c318;
+  // --eighth-color: #f60707;
+  // --ninth-color: #d5d5d5;
+  //  --tenth-color: rgb(216, 216, 216);
+  // --eleventh-color:rgb(255, 255, 6);
+
+// 
+// 
+// 
+
+	// --x: #231f20;
+	// --x: #96c361;
+	// --x: #efa142;
+	// --x: #fff;
+	// --x: #fafafa;
+	// --podskazki: #a5a5a5;
+
+
+
+
   --font-first-color: #ffffff;
   --font-second-color: #000000;
   --font-third-color: #c3c3c3;
@@ -29,6 +46,688 @@
   //---ШРИФТЫ---
   --first-fonts: sans-serif;
 
+  --font-family: "Stolzl", sans-serif;
+  --second-family: "Poppins", sans-serif;
+  --third-family: "Cera Pro", sans-serif;
+  --font3: "Helvetica", sans-serif;
+  --font4: "Hanging Letters", sans-serif;
+  --font5: "Inter", sans-serif;
+
   //---ГЛОБАЛЬНЫЕ РАЗМЕРЫ---
   --side-margins-base: 5vw;
 }
+
+/*
+СПИСКИ ГОРОДОВ
+width: 671px;
+height: 358px; 
+title
+font-family: var(--font-family);
+font-weight: 700;
+font-size: 20px;
+line-height: 117%;
+color: #000;
+
+list-el
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 116%;
+color: var(--x);
+font-weight: 400;
+line-height: 172%;
+color: #000;
+//
+//
+//
+уточнение города
+border-radius: 6px;
+width: 249px;
+height: 106px;
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: var(--x);
+text-decoration: underline;
+text-decoration-skip-ink: none;
+,
+кнопка
+border-radius: 6px;
+padding: 7px 26px;
+width: 93px;
+height: 33px;
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: var(--x);
+// 
+// 
+// 
+прехедер
+width: 1440px;
+height: 49px;
+background: #2a2a2a;
+--иконки
+обертка
+ width: 123px;
+height: 37px;
+
+имдж
+width="37" height="37" 
+// 
+// 
+// 
+// 
+--------header-------
+Главная
+Каталог
+Блог
+О нас
+
+-nav active
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 116%;
+color: #5a5a5a;
+
+line
+border: 3px solid var(--x);
+width: 68px;
+height: 0px;
+
+--nav
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: #5a5a5a;
+
+--search
+20px
+
+--cart
+width: 29px;
+height: 24px;
+font-family: var(--third-family);
+font-weight: 500;
+font-size: 10px;
+color: var(--x);
+
+elipse
+border-radius: 100%;
+fill: var(--x);
+stroke-width: 2px;
+stroke: var(--x);
+
+--button
+Войти
+
+border-radius: 6px;
+width: 100px;
+height: 35px;
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: var(--x);
+
+img
+20px 
+
+// 
+// 
+// 
+----------банер
+width: 1200px;
+height: 450px;
+
+
+subtitle
+Интернет-магазин кальянов и аксессуаров
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 171%;
+text-transform: uppercase;
+color: #3d3d3d;
+
+title
+Smoking shop
+font-family: var(--font-family);
+font-weight: 700;
+font-size: 70px;
+line-height: 100%;
+text-transform: uppercase;
+color: #3d3d3d;
+
+description
+We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 171%;
+color: #727272;
+
+button
+Начать покупки 
+border-radius: 6px;
+padding: 9px 26px;
+width: 188px;
+height: 37px;
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: var(--x);
+
+pagination
+8px
+
+img
+width: 738px;
+height: 590px;
+// 
+// 
+// 
+// 
+// 
+
+------navigation main----
+Наши товары
+Все товары
+Новинки
+Скидки
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: #3d3d3d;
+
+-----ВЫБОР ОТОБРАЖЕНИЯ ЭЛЕМЕНТОВ
+23px
+
+----card--active
+width: 258px;
+height: 300px;
+box-shadow: 0 0 29px 0 rgba(106, 106, 106, 0.19);
+background: #fbfbfb;
+
+---like
+width: 35px;
+height: 35px;
+
+description
+Alpha Hookah Beat Splash Doc (Колба Clear)
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: #3d3d3d;
+
+price
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 89%;
+color: var(--x);
+
+button
+border-radius: 6px;
+padding: 7px 26px;
+width: 138px;
+height: 33px;
+
+.............+ and -
+button
+border-radius: 29px;
+width: 21px;
+height: 25px;
+
+border: 2px solid var(--x);
+width: 7px;
+height: 0px;
+
+text
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 103%;
+color: #3d3d3d;
+// 
+// 
+// 
+// 
+
+----sidebar
+title
+Категории
+Цена
+
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 89%;
+color: #3d3d3d;
+
+
+list
+Любой магазин IQOS Аксессуары Кальяные смеси Кальяны Комплектующие Мерч Уголь Электронные сигареты
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: var(--x);
+color: #3d3d3d;
+
+number
+font-family: var(--second-family);
+
+price
+1 190.00₽
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: var(--x);
+
+линия
+border: 4px solid rgba(70, 163, 88, 0.2);
+width: 209px;
+height: 0px;
+
+толстая линия
+border: 4px solid var(--x);
+width: 161px;
+height: 0px;
+
+шарики
+border-radius: 100%;
+fill: var(--x);
+stroke-width: 3px;
+stroke: var(--x);
+21px
+
+button
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: var(--x);
+
+применить
+border-radius: 6px;
+padding: 7px 26px;
+width: 146px;
+height: 33px;
+
+сброс
+border-radius: 6px;
+padding: 7px 26px;
+width: 107px;
+height: 33px;
+// 
+// 
+// 
+// 
+// 
+-----------БАНЕР---
+width="310" height="599"
+
+sale
+font-family: var(--font-family);
+font-weight: 700;
+font-size: 70px;
+line-height: 100%;
+text-transform: uppercase;
+color: var(--x);
+
+Скидки на все табаки до конца мая
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 103%;
+text-align: center;
+color: var(--x);
+
+img
+width: 272px;
+height: 272px;
+
+-15%
+font-family: var(--font-family);
+font-weight: 700;
+font-size: 70px;
+line-height: 100%;
+text-transform: uppercase;
+color: var(--x);
+
+“ВСЕ ЛЕТИМ НА ШАШЛЫНДОС”
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+text-align: center;
+color: var(--x);
+// 
+// 
+// 
+// 
+----pages pagination
+border-radius: 4px;
+width: 35px;
+height: 35px;
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 89%;
+color: var(--x);
+
+
+// 
+// 
+// 
+// 
+// 
+
+
+карточки предложений
+девушка
+width: 286px;
+height: 429px;
+
+кальян
+width: 231px;
+height: 324px;
+
+
+title
+Наш мерч
+Кальянные смеси &Кальяны
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 89%;
+text-align: right;
+color: #3d3d3d;
+
+
+
+description
+We are an online plant shop offering a wide range of cheap and trendy plants
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 171%;
+text-align: right;
+color: #727272;
+
+
+button
+border-radius: 6px;
+padding: 9px 27px;
+width: 153px;
+height: 37px;
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: var(--x)
+
+img
+14px 
+
+// 
+// 
+// 
+// 
+// 
+
+--------НАШ БЛОГ
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 30px;
+line-height: 123%;
+text-align: center;
+color: #3d3d3d;
+
+subtitle
+Мы являемся интернет-магазином кальянов, предлагающим широкий ассортимент современных и по доступной цене кальянов и их комплектующих.
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 171%;
+text-align: center;
+color: #727272;
+
+window black
+width: 268px;
+height: 195px;
+
+text block
+width: 268px;
+height: 167px;
+background: #fbfbfb;
+
+data
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 171%;
+color: var(--x);
+
+title
+Кальянные комплектующие
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 103%;
+color: #3d3d3d;
+
+description
+Cacti are succulents are easy care plants for any home
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 171%;
+color: #727272;
+
+ЧИТАТЬ
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: #3d3d3d;
+
+img
+12px
+
+
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
+--------------Не нашли нужный товар?
+width: 1200px;
+height: 250px;
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 103%;
+color: #3d3d3d;
+
+img
+width="370" height="425"
+
+input
+border-radius: 6px;
+width: 593px;
+height: 40px;
+box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.06);
+background: var(--x);
+
+впишите ваш email ...
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 171%;
+color: #acacac;
+
+button
+border-radius: 0 6px 6px 0;
+width: 85px;
+height: 40px;
+font-family: var(--second-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 89%;
+color: var(--x);
+
+
+Мы сможем подобрать нужный вам товар, а так же помочь со всеми вопросами, просто заполните ваш емейл и мы вам ответим
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 13px;
+line-height: 123%;
+color: #727272;
+
+// 
+// 
+// 
+// 
+// 
+
+-------PREFOOTER
+width: 1440px;
+height: 88px;
+
+logo
+width: 172px;
+height: 48px;
+
+contacts
+contact@greenshop.com
+610001, Кировская обл, г Киров, Комсомольская ул, д. 46/6, оф. 401   
+
+width: 153px;
+height: 24px;
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 171%;
+color: var(--x);
+
+img
+width="20" height="20" 
+
+----------FOOTER
+background: #fbfbfb;
+
+---list footer
+title
+Мой аккаунт
+Помощь
+Категории
+Соц сети
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 18px;
+line-height: 103%;
+color: #3d3d3d;
+
+
+--списки
+Мой аккаунт История заказов Наши контакты Политика Блог
+Поддержка Как купить Оплата и доставка Как вернуть Контакты
+IQOS Аксессуары Кальяные смеси Кальяны Комплектующие Мерч Уголь Электронные сигареты
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 13px;
+line-height: 123%;
+color: #3d3d3d;
+
+соцсети
+width: 123px;
+height: 37px;
+
+img
+width="19" height="14"
+
+----
+2023 Smoking Shop.Все права защищены.
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 171%;
+color: var(--x);
+
+----
+ИНН 4345427922 КПП 434501001 ОГРН 1154350010473
+
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 171%;
+color: var(--podskazki);
+
+
+--
+18+
+width: 72px;
+height: 72px;
+border-radius: 100%;
+stroke-width: 2px;
+stroke: var(--x);
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 30px;
+line-height: 123%;
+color: #3d3d3d;
+
+----
+МИНЗДРАВ ПРЕДУПРЕЖДАЕТ: КУРЕНИЕ ВРЕДИТ ВАШЕМУ ЗДОРОВЬЮ!
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+color: var(--x);
+
+---
+Мы не рекламируем табак и курение. Вся информация на сайте носит информационный характер. Дистанционная продажа табачных изделий не ведется.
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 116%;
+text-align: center;
+color: var(--podskazki);
+
+---
+Разработка сайта 
+font-family: var(--font3);
+font-weight: 400;
+font-size: 20px;
+letter-spacing: -0.01em;
+color: #000;
+
+img
+width="222" height="50"
+
+*/
