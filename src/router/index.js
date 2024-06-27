@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
-    { path: '/', name: 'home', component: () => import('@/pages/HomePage.vue') },
+    { path: '/', name: 'home-page', component: () => import('@/pages/HomePage.vue') },
     {
       path: '/catalog',
       name: 'Catalog',
@@ -18,7 +18,7 @@ const router = createRouter({
 
     {
       path: '/information',
-      name: 'information',
+      name: 'information-company',
       component: () => import('@/pages/InformationPage.vue'),
       children: [
         {

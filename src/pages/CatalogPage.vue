@@ -1,18 +1,25 @@
 <template>
-  <div>
-
-  </div>
+  <header-block />
+  <!--<div></div>-->
+  <!--<footer-block />-->
 </template>
 
 <script>
-  export default {
-     name: 'catalog-page',
+import HeaderBlock from '@/components/HeaderBlock.vue';
+import FooterBlock from '@/components/FooterBlock.vue';
+
+export default {
+  name: 'catalog-page',
+  components: {
+    HeaderBlock,
+    FooterBlock,
+  },
   data() {
     return {};
   },
-  }
+  methods: {},
+  mounted() {},
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

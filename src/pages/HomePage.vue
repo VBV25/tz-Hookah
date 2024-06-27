@@ -1,6 +1,6 @@
 <template>
   <social-header />
-  <!--<header-block />-->
+  <header-block />
   <!--<div></div>-->
   <!--<footer-block />-->
 </template>

@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     getImageUrl(imageName) {
-      return require(`@/assets/img/social/${imageName}`);
+      return require(`@/assets/img/social/white/${imageName}`);
     },
   },
 };
@@ -27,16 +27,13 @@ export default {
 
 <style lang="scss" scoped>
 .social-button {
-  width: 25px;
-  height: 25px;
-
+  width: 19px;
+  height: max-content;
   display: flex;
-  //align-items: center;
-  //justify-content: center;
 
   &__img {
     width: 100%;
-    height: 100%;
+    height: auto;
   }
 }
 </style>

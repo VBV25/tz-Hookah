@@ -12,31 +12,33 @@ const dataModule = {
         id: 'yt-social-btn',
         name: 'YouTube',
         link: '#',
-        img: 'YouTube.svg',
+        img: 'youtube.svg',
       },
       {
         id: 'tg-social-btn',
         name: 'Телеграм',
         link: '#',
-        img: 'tg.svg',
+        img: 'telegram.svg',
       },
     ],
+    currentHeaderMenuElement: 'home'
   },
 
   getters: {
     socialButtonsData: (state) => state.socialButtonsData,
+    currentHeaderMenuElement: (state) => state.currentHeaderMenuElement,
   },
 
   mutations: {
-    //changeMenuData(state, newMenuData) {
-    //  state.menuData = newMenuData;
-    //},
+    mutationCurrentHeaderMenuElement(state, newCurrentHeaderMenuElement) {
+      state.currentHeaderMenuElement = newCurrentHeaderMenuElement;
+    },
   },
 
   actions: {
-    //changeErrorTextMenu({ commit }, errorTextMenu) {
-    //  commit('changeErrorTextMenu', errorTextMenu);
-    //},
+    changeCurrentHeaderMenuElement({ commit }, currentHeaderMenuElement) {
+      commit('mutationCurrentHeaderMenuElement', currentHeaderMenuElement);
+    },
   },
 };
 
