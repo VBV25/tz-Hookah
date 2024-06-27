@@ -3,17 +3,22 @@
   --first-color: rgb(255, 255, 255);
   --second-color: rgb(0, 0, 0);
   --second-color-opacity: rgba(28, 29, 34, 0.357);
-  --third-color: #2A2A2A;
-  --fourth-color: #EFA142;
-  --fifth-color: #96C361;   
-  --sixth-color: #5A5A5A;
-  --seventh-color: #231f20;  
+  --third-color: #2a2a2a;
+  --fourth-color: #efa142;
+  --fifth-color: #96c361;
+  --sixth-color: #5a5a5a;
+  --seventh-color: #231f20;
   --eighth-color: #fafafa;
   --ninth-color: #a5a5a5;
 
+  //special color
+  --slider-bg-color: #fafafa;
+  //-------------
+
   --font-first-color: #ffffff;
   --font-second-color: #000000;
-  --font-third-color: #c3c3c3;
+  --font-third-color: #3d3d3d;
+  --font-fourth-color: #727272;
 
   //---РАЗМЕРЫ ШРИФТОВ---
   --font-size-h1: 70px;
@@ -21,9 +26,12 @@
   --font-size-h3: 18px;
   --font-size-h4: 16px;
   --font-size-h5: 14px;
+  --font-size-text: 14px;
 
   --font-size-first: 26px;
   --font-size-second: 18px;
+  --font-size-button: 16px;
+  --font-size-navigation: 16px;
 
   //---ШРИФТЫ---
   --first-fonts: sans-serif;
@@ -37,6 +45,7 @@
 
   //---ГЛОБАЛЬНЫЕ РАЗМЕРЫ---
   --side-margins-base: 5vw;
+  --slider-width: 90vw;
 }
 
 /*
@@ -91,112 +100,110 @@ color: var(--x);
 // 
 // 
 // 
-прехедер
-width: 1440px;
-height: 49px;
-background: #2a2a2a;
---иконки
-обертка
- width: 123px;
-height: 37px;
+//прехедер
+//width: 1440px;
+//height: 49px;
+//background: #2a2a2a;
+//--иконки
+//обертка
+// width: 123px;
+//height: 37px;
 
-имдж
-width="37" height="37" 
+//имдж
+//width="37" height="37" 
 // 
 // 
 // 
 // 
 --------header-------
-Главная
-Каталог
-Блог
-О нас
+//Главная
+//Каталог
+//Блог
+//О нас
 
--nav active
-font-family: var(--font-family);
-font-weight: 500;
-font-size: 16px;
-line-height: 116%;
-color: #5a5a5a;
+//-nav active
+//font-family: var(--font-family);
+//font-weight: 500;
+//font-size: 16px;
+//line-height: 116%;
+//color: #5a5a5a;
 
-line
-border: 3px solid var(--x);
-width: 68px;
-height: 0px;
+//line
+//border: 3px solid var(--x);
+//width: 68px;
+//height: 0px;
 
---nav
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 16px;
-line-height: 116%;
-color: #5a5a5a;
+//--nav
+//font-family: var(--font-family);
+//font-weight: 400;
+//font-size: 16px;
+//line-height: 116%;
+//color: #5a5a5a;
 
---search
-20px
+//--search
+//20px
 
---cart
-width: 29px;
-height: 24px;
-font-family: var(--third-family);
-font-weight: 500;
-font-size: 10px;
-color: var(--x);
+//--cart
+//width: 29px;
+//height: 24px;
+//font-family: var(--third-family);
+//font-weight: 500;
+//font-size: 10px;
+//color: var(--x);
 
-elipse
-border-radius: 100%;
-fill: var(--x);
-stroke-width: 2px;
-stroke: var(--x);
+//elipse
+//border-radius: 100%;
+//fill: var(--x);
+//stroke-width: 2px;
+//stroke: var(--x);
 
---button
-Войти
+//--button
+//Войти
 
-border-radius: 6px;
-width: 100px;
-height: 35px;
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 16px;
-line-height: 116%;
-color: var(--x);
 
-img
-20px 
+//font-family: var(--font-family);
+//font-weight: 400;
+//font-size: 16px;
+//line-height: 116%;
+//color: var(--x);
+
+//img
+//20px 
 
 // 
 // 
 // 
 ----------банер
-width: 1200px;
-height: 450px;
+//width: 1200px;
+//height: 450px;
 
 
-subtitle
-Интернет-магазин кальянов и аксессуаров
+//subtitle
+//Интернет-магазин кальянов и аксессуаров
 
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 14px;
-line-height: 171%;
-text-transform: uppercase;
-color: #3d3d3d;
+//font-family: var(--font-family);
+//font-weight: 400;
+//font-size: 14px;
+//line-height: 171%;
+//text-transform: uppercase;
+//color: #3d3d3d;
 
-title
-Smoking shop
-font-family: var(--font-family);
-font-weight: 700;
-font-size: 70px;
-line-height: 100%;
-text-transform: uppercase;
-color: #3d3d3d;
+//title
+//Smoking shop
+//font-family: var(--font-family);
+//font-weight: 700;
+//font-size: 70px;
+//line-height: 100%;
+//text-transform: uppercase;
+//color: #3d3d3d;
 
-description
-We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 14px;
-line-height: 171%;
-color: #727272;
+//description
+//We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!
+//font-family: var(--font-family);
+//font-weight: 400;
+//font-size: 14px;
+//line-height: 171%;
+//color: #727272;
 
 button
 Начать покупки 
