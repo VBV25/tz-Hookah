@@ -1,7 +1,10 @@
 const dataModule = {
   namespaced: true,
   state: {
-    currentHeaderMenuElement: 'home',
+    currentMenuElement: {
+      header: 'home',
+      products: 'exclusive-products'
+    },
     socialButtonsData: [
       {
         id: 'vk-social-btn',
@@ -32,18 +35,19 @@ const dataModule = {
   getters: {
     socialButtonsData: (state) => state.socialButtonsData,
     sliderContent: (state) => state.sliderContent,
-    currentHeaderMenuElement: (state) => state.currentHeaderMenuElement,
+    currentMenuElement: (state) => state.currentMenuElement,
   },
 
   mutations: {
-    mutationCurrentHeaderMenuElement(state, newCurrentHeaderMenuElement) {
-      state.currentHeaderMenuElement = newCurrentHeaderMenuElement;
-    },
+    mutationCurrentMenuElement(state, payload) {
+      const { key, value } = payload;
+      state.currentMenuElement[key] = value;
+    }
   },
 
   actions: {
-    changeCurrentHeaderMenuElement({ commit }, currentHeaderMenuElement) {
-      commit('mutationCurrentHeaderMenuElement', currentHeaderMenuElement);
+    changeCurrentMenuElement({ commit },data) {
+      commit('mutationCurrentMenuElement',data);
     },
   },
 };

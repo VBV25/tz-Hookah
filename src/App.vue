@@ -16,6 +16,7 @@ export default {
 #app {
   width: 100%;
   min-height: 100vh;
+  height: max-content;
 
   display: grid;
   grid-template-columns: 100%;

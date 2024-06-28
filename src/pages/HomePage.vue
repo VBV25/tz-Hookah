@@ -5,6 +5,10 @@
   </header>
   <main class="main">
     <slider-block />
+    <section class="content-product">
+      <side-bar />
+      <products-container />
+    </section>
   </main>
   <footer-block />
 </template>
@@ -13,6 +17,8 @@
 import SocialHeader from '@/components/SocialHeader.vue';
 import HeaderBlock from '@/components/HeaderBlock.vue';
 import SliderBlock from '@/components/SliderBlock.vue';
+import SideBar from '@/components/SideBar.vue';
+import ProductsContainer from '@/components/ProductsContainer.vue';
 import FooterBlock from '@/components/FooterBlock.vue';
 
 export default {
@@ -21,13 +27,15 @@ export default {
     SocialHeader,
     HeaderBlock,
     SliderBlock,
+    ProductsContainer,
+    SideBar,
     FooterBlock,
   },
   data() {
     return {};
   },
   methods: {},
-  mounted() {},
+  mounted() { },
 };
 </script>
 
@@ -36,9 +44,29 @@ export default {
   width: 100%;
   height: max-content;
 }
+
 .main {
+  width: 100%;
+  height: max-content;
   padding: 10px var(--side-margins-base);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.content-product *{
+  border: 2px solid red;
+}
+
+.content-product {
+  width: 100%;
+  height: 50vh;
+
+  display: grid;
+  grid-template-rows: max-content;
+  grid-template-columns: max-content 1fr;
+  column-gap: 20px;
 }
 </style>

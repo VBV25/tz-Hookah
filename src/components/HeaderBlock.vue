@@ -47,6 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  position: relative;
   width: 100%;
   height: max-content;
   padding: 0px var(--side-margins-base);
@@ -54,7 +55,18 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--fifth-color);
+  // border-bottom: 1px solid var(--fifth-color);
+
+  &::before{
+    content: '';
+    position: absolute;
+    left: var(--side-margins-base);
+    bottom: 0px;
+    width: calc(100vw - var(--side-margins-base)*2);
+    height: 1px;
+    opacity: 0.8;
+    background-color:var(--fifth-color) ;
+  }
 
   &__logo-wrapper {
     $widthLogo: 134px;
