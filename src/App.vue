@@ -3,12 +3,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   data() {
     return {};
   },
-  methods: {},
-  mounted() {},
+  methods: {
+    ...mapActions({
+      loadProductsData: 'productsStore/loadProductsData',
+    }),
+  },
+  created() {
+    this.loadProductsData();
+  },
 };
 </script>
 

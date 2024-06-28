@@ -3,7 +3,17 @@ import { createRouter, createWebHistory } from 'vue-router';
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
-    { path: '/', name: 'home-page', component: () => import('@/pages/HomePage.vue') },
+    {
+      path: '/',
+      name: 'home-page',
+      component: () => import('@/pages/HomePage.vue'),
+      children: [
+        {
+          path: ':catchAll(.*)*',
+          component: () => import('@/pages/HomePage.vue'),
+        },
+      ],
+    },
     {
       path: '/catalog',
       name: 'Catalog',

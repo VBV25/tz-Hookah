@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 import SocialHeader from '@/components/SocialHeader.vue';
 import HeaderBlock from '@/components/HeaderBlock.vue';
 import SliderBlock from '@/components/SliderBlock.vue';
@@ -34,8 +36,16 @@ export default {
   data() {
     return {};
   },
-  methods: {},
-  mounted() { },
+  computed: {
+    ...mapGetters({
+      currentMenuElement: 'dataStore/currentMenuElement',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      changeCurrentMenuElement: 'dataStore/changeCurrentMenuElement',
+    }),
+  },
 };
 </script>
 
@@ -56,10 +66,6 @@ export default {
   gap: 20px;
 }
 
-.content-product *{
-  border: 2px solid red;
-}
-
 .content-product {
   width: 100%;
   height: 50vh;
@@ -67,6 +73,6 @@ export default {
   display: grid;
   grid-template-rows: max-content;
   grid-template-columns: max-content 1fr;
-  column-gap: 20px;
+  column-gap: 40px;
 }
 </style>

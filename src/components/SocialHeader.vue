@@ -50,9 +50,11 @@ export default {
   }
 
   &__city {
+    cursor: pointer;
+    font-weight: 300;
     color: var(--font-first-color);
     font-family: var(--first-fonts);
-    font-size: var(--font-size-second);
+    font-size: var(--font-size-city);
   }
 
   &__button-group {

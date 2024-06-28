@@ -7,7 +7,6 @@
       <button class="slide__button">{{ slideData.buttonContent }}</button>
     </div>
     <div class="slide__product-img-wrapper">
-      <!-- :src="'@/assets/img/slider/' + slideData.imgContent" -->
       <img class="slide__product-img" :src="getImageUrlSlider(slideData.imgContent)" alt="продукт" />
     </div>
   </div>
@@ -46,6 +45,7 @@ export default {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   user-select: none;
+  overflow: hidden;
 
   &:before {
     content: '';
@@ -114,6 +114,7 @@ export default {
   }
 
   &__product-img-wrapper {
+    pointer-events: none;
     z-index: 5;
     position: absolute;
     width: 42%;
@@ -125,10 +126,11 @@ export default {
     overflow: hidden;
   }
   &__product-img {
-    width: auto;
-    height: 110%;
+    width: 100%;
+    height: auto;
     margin-bottom: -60px;
     margin-right: -10px;
+    transform: scale(1.3);
   }
 }
 </style>

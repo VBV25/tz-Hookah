@@ -5,67 +5,80 @@
     </div>
     <navigation-list :navList="$store.state.textStore.headerNavigation" />
     <div class="header__button-group">
-      <button type="button" class="header__icon-button" id="search-button"></button>
-      <button type="button" class="header__icon-button" id="cart-button">
-        <div class="header__icon-button-current">0</div>
-      </button>
-      <button type="button" class="header__entry-button" id="entry-button">
-        <img class="header__entry-button-img" src="@/assets/img/header/Logout.svg" alt="вход" />
-        <p class="header__entry-button-text">Вход</p>
-      </button>
+      <base-button class="header__icon-button" :buttonData="dataSearchButton" />
+      <base-button class="header__icon-button" :buttonData="dataCartButton" />
+      <base-button class="header__icon-button" :buttonData="dataEntryButton" />
     </div>
   </section>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
-
 import NavigationList from '@/components/UI/NavigationList.vue';
+import BaseButton from '@/components/UI/BaseButton.vue';
 
 export default {
   name: 'header-block',
   components: {
     NavigationList,
+    BaseButton,
   },
   data() {
-    return {};
+    return {
+      dataSearchButton: {
+        id: 'search-button',
+        img: 'search.svg',
+        text: '',
+        callback: () => {
+          console.log('search');
+        },
+      },
+      dataCartButton: {
+        id: 'cart-button',
+        img: 'cart.svg',
+        text: '',
+        auxiliaryBlock: 'counter',
+        auxiliaryBlockData: 0,
+        callback: () => {
+          console.log('cart');
+        },
+      },
+      dataEntryButton: {
+        id: 'entry-button',
+        img: 'Logout.svg',
+        text: 'Вход',
+        callback: () => {
+          console.log('entry');
+        },
+      },
+    };
   },
 
-  computed: {
-    ...mapGetters({
-      //getMenuData: 'menuStore/menuData',
-    }),
-  },
+  computed: {},
 
-  methods: {
-    ...mapActions({
-      //loadingMenuData: 'menuStore/getMenuData',
-    }),
-  },
+  methods: {},
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .header {
   position: relative;
   width: 100%;
   height: max-content;
-  padding: 0px var(--side-margins-base);
+  padding: 0px var(--side-margins-base) !important;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // border-bottom: 1px solid var(--fifth-color);
 
-  &::before{
+  &::before {
     content: '';
     position: absolute;
     left: var(--side-margins-base);
     bottom: 0px;
-    width: calc(100vw - var(--side-margins-base)*2);
+    width: calc(100vw - var(--side-margins-base) * 2);
     height: 1px;
     opacity: 0.8;
-    background-color:var(--fifth-color) ;
+    background-color: var(--fifth-color);
   }
 
   &__logo-wrapper {
@@ -88,7 +101,7 @@ export default {
     height: max-content;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
   }
 
   &__icon-button {
@@ -102,54 +115,52 @@ export default {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  #search-button {
-    background-image: url('@/assets/img/header/search.svg');
-  }
-  #cart-button {
-    background-image: url('@/assets/img/header/cart.svg');
-  }
-  &__icon-button-current {
-    position: absolute;
-    right: -7px;
-    top: 0px;
-    width: 16px;
-    height: 16px;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    border: 2px solid var(--first-color);
-    background-color: var(--fifth-color);
+.header #entry-button {
+  width: 100px;
+  height: 35px;
+  padding: 4px;
 
-    font-family: var(--third-family);
-    font-weight: 500;
-    font-size: 8px;
-    color: var(--font-first-color);
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 6px;
+  background-color: var(--fifth-color);
 
-  &__entry-button {
-    width: 100px;
-    height: 35px;
-    padding: 4px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    border-radius: 6px;
-    background-color: var(--fifth-color);
-  }
-  &__entry-button-img {
+  .button__img {
     width: 20px;
     height: auto;
   }
-  &__entry-button-text {
+
+  .button__text {
     font-family: var(--font-family);
     font-weight: 400;
     font-size: var(--font-size-button);
-    line-height: 116%;
+    line-height: 100%;
     color: var(--font-first-color);
   }
+}
+
+.header .button__counter {
+  position: absolute;
+  right: -7px;
+  top: 0px;
+  width: 16px;
+  height: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  border: 2px solid var(--first-color);
+  background-color: var(--fifth-color);
+
+  font-family: var(--third-family);
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 100%;
+  color: var(--font-first-color);
 }
 </style>
