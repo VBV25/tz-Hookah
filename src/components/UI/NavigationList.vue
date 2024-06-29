@@ -4,7 +4,7 @@
       class="navigation-list__link"
       v-for="element in navList"
       :key="element.id"
-      @click="changeRoute(element)"
+      @click="handleNavigationClick(element)"
       :id="element.id"
       :class="{ 'navigation-list__link_active': element.id === currentMenuElement.header || element.id === currentMenuElement.products }"
     >
@@ -38,14 +38,17 @@ export default {
   methods: {
     ...mapActions({
       changeCurrentMenuElement: 'dataStore/changeCurrentMenuElement',
+      filterProducts: 'productsStore/filterProducts', // экшн для фильтрации продуктов
     }),
 
-    changeRoute(element) {
-      if (element.routerLink) {
+    handleNavigationClick(element) {
+      if (element.categoryNavigation === 'router') {
         this.$router.push(`${element.routerLink}`);
         this.changeCurrentMenuElement({ key: 'header', value: element.id });
       }
-      if (!element.routerLink) {
+
+      if (element.categoryNavigation === 'products') {
+        this.filterProducts(element.id);
         this.changeCurrentMenuElement({ key: 'products', value: element.id });
       }
     },
@@ -54,7 +57,7 @@ export default {
     if (this.$route.name.toLowerCase()) {
       this.changeCurrentMenuElement({ key: 'header', value: this.$route.name.toLowerCase() });
     }
-    this.changeCurrentMenuElement({ key: 'products', value: 'exclusive-products' });
+    this.changeCurrentMenuElement({ key: 'products', value: 'exclusiveProducts' });
   },
 };
 </script>
@@ -100,7 +103,7 @@ export default {
 
     &__link {
       padding: 4px;
-
+      color: var(--font-third-color);
       &_active {
         color: var(--fifth-color);
       }

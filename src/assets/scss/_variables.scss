@@ -6,6 +6,7 @@
   --third-color: #2a2a2a;
   --fourth-color: #efa142;
   --fifth-color: #96c361;
+  --fifth-color-opacity: rgba(149, 195, 97, 0.3);
   --sixth-color: #5a5a5a;
   --seventh-color: #231f20;
   --eighth-color: #fafafa;
@@ -30,9 +31,11 @@
 
   --font-size-first: 26px;
   --font-size-second: 18px;
+  --font-size-third: 16px;
   --font-size-button: 16px;
   --font-size-navigation: 15px;
   --font-size-city: 12px;
+  --font-small: 12px;
 
   //---ШРИФТЫ---
   --first-fonts: sans-serif;
@@ -47,6 +50,8 @@
   //---ГЛОБАЛЬНЫЕ РАЗМЕРЫ---
   --side-margins-base: 5vw;
   --slider-width: 90vw;
+  --max-width-block-global: 1250px;
+  --max-width-sidebar: 270px;
 }
 
 /*
@@ -98,149 +103,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 116%;
 color: var(--x);
-// 
-// 
-// 
-//прехедер
-//width: 1440px;
-//height: 49px;
-//background: #2a2a2a;
-//--иконки
-//обертка
-// width: 123px;
-//height: 37px;
 
-//имдж
-//width="37" height="37" 
-// 
-// 
-// 
-// 
---------header-------
-//Главная
-//Каталог
-//Блог
-//О нас
-
-//-nav active
-//font-family: var(--font-family);
-//font-weight: 500;
-//font-size: 16px;
-//line-height: 116%;
-//color: #5a5a5a;
-
-//line
-//border: 3px solid var(--x);
-//width: 68px;
-//height: 0px;
-
-//--nav
-//font-family: var(--font-family);
-//font-weight: 400;
-//font-size: 16px;
-//line-height: 116%;
-//color: #5a5a5a;
-
-//--search
-//20px
-
-//--cart
-//width: 29px;
-//height: 24px;
-//font-family: var(--third-family);
-//font-weight: 500;
-//font-size: 10px;
-//color: var(--x);
-
-//elipse
-//border-radius: 100%;
-//fill: var(--x);
-//stroke-width: 2px;
-//stroke: var(--x);
-
-//--button
-//Войти
-
-
-//font-family: var(--font-family);
-//font-weight: 400;
-//font-size: 16px;
-//line-height: 116%;
-//color: var(--x);
-
-//img
-//20px 
-
-// 
-// 
-// 
-----------банер
-//width: 1200px;
-//height: 450px;
-
-
-//subtitle
-//Интернет-магазин кальянов и аксессуаров
-
-//font-family: var(--font-family);
-//font-weight: 400;
-//font-size: 14px;
-//line-height: 171%;
-//text-transform: uppercase;
-//color: #3d3d3d;
-
-//title
-//Smoking shop
-//font-family: var(--font-family);
-//font-weight: 700;
-//font-size: 70px;
-//line-height: 100%;
-//text-transform: uppercase;
-//color: #3d3d3d;
-
-//description
-//We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!
-//font-family: var(--font-family);
-//font-weight: 400;
-//font-size: 14px;
-//line-height: 171%;
-//color: #727272;
-
-button
-//Начать покупки 
-//border-radius: 6px;
-//padding: 9px 26px;
-//width: 188px;
-//height: 37px;
-//font-family: var(--font-family);
-//font-weight: 400;
-//font-size: 16px;
-//line-height: 116%;
-//color: var(--x);
-
-//pagination
-//8px
-
-//img
-//width: 738px;
-//height: 590px;
-// 
-// 
-// 
-// 
-// 
-
-------navigation main----
-//Наши товары
-//Все товары
-//Новинки
-//Скидки
-
-//font-family: var(--font-family);
-//font-weight: 400;
-//font-size: 16px;
-//line-height: 116%;
-//color: #3d3d3d;
 
 -----ВЫБОР ОТОБРАЖЕНИЯ ЭЛЕМЕНТОВ
 23px
@@ -255,14 +118,6 @@ background: #fbfbfb;
 width: 35px;
 height: 35px;
 
-description
-Alpha Hookah Beat Splash Doc (Колба Clear)
-
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 16px;
-line-height: 116%;
-color: #3d3d3d;
 
 price
 font-family: var(--font-family);
@@ -298,120 +153,7 @@ color: #3d3d3d;
 // 
 // 
 
-----sidebar
-//title
-//Категории
-Цена
 
-
-//font-family: var(--font-family);
-//font-weight: 400;
-//font-size: 18px;
-//line-height: 89%;
-//color: #3d3d3d;
-
-
-list
-//Любой магазин IQOS Аксессуары Кальяные смеси Кальяны Комплектующие Мерч Уголь Электронные сигареты
-
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 16px;
-line-height: 116%;
-color: var(--x);
-color: #3d3d3d;
-
-number
-font-family: var(--second-family);
-
-price
-1 190.00₽
-
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 16px;
-line-height: 116%;
-color: var(--x);
-
-линия
-border: 4px solid rgba(70, 163, 88, 0.2);
-width: 209px;
-height: 0px;
-
-толстая линия
-border: 4px solid var(--x);
-width: 161px;
-height: 0px;
-
-шарики
-border-radius: 100%;
-fill: var(--x);
-stroke-width: 3px;
-stroke: var(--x);
-21px
-
-button
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 16px;
-line-height: 116%;
-color: var(--x);
-
-применить
-border-radius: 6px;
-padding: 7px 26px;
-width: 146px;
-height: 33px;
-
-сброс
-border-radius: 6px;
-padding: 7px 26px;
-width: 107px;
-height: 33px;
-// 
-// 
-// 
-// 
-// 
------------БАНЕР---
-width="310" height="599"
-
-sale
-font-family: var(--font-family);
-font-weight: 700;
-font-size: 70px;
-line-height: 100%;
-text-transform: uppercase;
-color: var(--x);
-
-Скидки на все табаки до конца мая
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 18px;
-line-height: 103%;
-text-align: center;
-color: var(--x);
-
-img
-width: 272px;
-height: 272px;
-
--15%
-font-family: var(--font-family);
-font-weight: 700;
-font-size: 70px;
-line-height: 100%;
-text-transform: uppercase;
-color: var(--x);
-
-“ВСЕ ЛЕТИМ НА ШАШЛЫНДОС”
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 16px;
-line-height: 116%;
-text-align: center;
-color: var(--x);
-// 
 // 
 // 
 // 

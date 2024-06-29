@@ -57,18 +57,18 @@ export default {
 
 .main {
   width: 100%;
+  max-width: var(--max-width-block-global);
   height: max-content;
-  padding: 10px var(--side-margins-base);
+  padding: 10px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: 20px;
 }
 
 .content-product {
   width: 100%;
-  height: 50vh;
+  height: max-content;
 
   display: grid;
   grid-template-rows: max-content;

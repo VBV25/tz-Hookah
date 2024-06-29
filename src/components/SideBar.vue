@@ -1,60 +1,136 @@
 <template>
   <aside class="sidebar">
     <div class="sidebar__content-wrapper">
-      <p class="sidebar__title">Категории</p>
-      <li v-for="elementList in getSideBarList" :key="elementList.category" class="sidebar__category">
-        <div v-if="elementList.subCategories.length > 0" class="sidebar__category-img">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M12.6666 5.66699L7.99992 10.3337L3.33325 5.66699"
-              stroke="#231F20"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
-        <!--<img class="sidebar__category-img" src="@/assets/img/sidebar/arrow-down.svg" alt="стрелка вниз" />-->
-        <p class="sidebar__category-text">{{ elementList.category }}</p>
-        <div class="sidebar__category-number">
-          (<span>{{ elementList.totalProducts }}</span
-          >)
-        </div>
-      </li>
+      <div class="sidebar__category-container">
+        <p class="sidebar__title">Категории</p>
+        <dropdown-list v-for="categoryElement in getSideBarList" :key="categoryElement.category" :sideBarList="categoryElement" />
+      </div>
+      <div class="sidebar__price-container">
+        <p class="sidebar__title">Цена</p>
+        <price-slider class="sidebar__slider" :initialPriceRange="priceRange" :initialMaxPrice="maxPrice" @updatePriceRange="updatePriceRange" />
+      </div>
+      <div class="sidebar__button-group">
+        <base-button class="sidebar__button" :buttonData="applySidebar" @click="displayMatchingProducts()" />
+        <base-button class="sidebar__button" :buttonData="resetSidebar" @click="clearSidebar()" />
+      </div>
+    </div>
+    <div class="sidebar__banner">
+      <banner-sale :dataBanner="bannerSaleSidebar" />
     </div>
   </aside>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
+
+import DropdownList from '@/components/UI/DropdownList.vue';
+import PriceSlider from '@/components/UI/PriceSlider.vue';
+import BannerSale from '@/components/UI/BannerSale.vue';
+import BaseButton from '@/components/UI/BaseButton.vue';
 
 export default {
   name: 'side-bar',
-  data() {
-    return {};
+  components: {
+    DropdownList,
+    PriceSlider,
+    BannerSale,
+    BaseButton,
   },
+  data() {
+    return {
+      applySidebar: {
+        id: 'apply-sidebar',
+        img: '',
+        text: 'Применить',
+      },
+      resetSidebar: {
+        id: 'reset-sidebar',
+        img: '',
+        text: 'Сброс',
+      },
+    };
+  },
+
   computed: {
     ...mapGetters({
+      getCurrentCategoryName: 'productsStore/getCurrentCategoryName',
+      getCurrentSubcategoryName: 'productsStore/getCurrentSubcategoryName',
       getProductsData: 'productsStore/getProductsData',
+      getCurrentProductsList: 'productsStore/getCurrentProductsList',
       getSideBarList: 'productsStore/getSideBarList',
+      priceRange: 'productsStore/getPriceRange',
+      maxPrice: 'productsStore/getMaxPrice',
+      bannerSaleSidebar: 'dataStore/bannerSaleSidebar',
     }),
+  },
+  methods: {
+    ...mapActions({
+      changeCurrentCategoryName: 'productsStore/changeCurrentCategoryName',
+      changeCurrentSubcategoryName: 'productsStore/changeCurrentSubcategoryName',
+      updatePriceRangeAction: 'productsStore/updatePriceRange',
+      setCurrentProductsList: 'productsStore/setCurrentProductsList',
+      setSortedProductsList: 'productsStore/setSortedProductsList',
+      filterProducts: 'productsStore/filterProducts',
+    }),
+
+    updatePriceRange(newPriceRange) {
+      console.log(newPriceRange);
+      this.updatePriceRangeAction(newPriceRange);
+    },
+
+    displayMatchingProducts() {
+      const filteredProducts = this.getProductsData.filter((product) => {
+        const matchesPrice = product.price >= this.priceRange[0] && product.price <= this.priceRange[1];
+        const matchesCategory = this.getCurrentCategoryName === 'Все товары' || product.category.ru === this.getCurrentCategoryName;
+        const matchesSubcategory = !this.getCurrentSubcategoryName || product.subCategory.ru === this.getCurrentSubcategoryName;
+
+        return matchesPrice && matchesCategory && matchesSubcategory;
+      });
+
+      //this.setCurrentProductsList(filteredProducts);
+      this.setSortedProductsList(filteredProducts);
+      this.filterProducts('exclusiveProducts');
+    },
+
+    clearSidebar() {
+      this.changeCurrentCategoryName('Все товары');
+      this.changeCurrentSubcategoryName('');
+      this.updatePriceRangeAction([0, this.maxPrice]);
+    },
+  },
+  created() {
+    this.changeCurrentCategoryName('Все товары');
+    this.changeCurrentSubcategoryName('');
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .sidebar {
-  max-width: 270px;
+  max-width: var(--max-width-sidebar);
   min-width: 200px;
   width: 25vw;
   min-height: 50vh;
-  padding: 10px 20px;
+  height: max-content;
   background-color: var(--eighth-color);
 
   &__content-wrapper {
+    padding: 10px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__category-container {
     display: flex;
     flex-direction: column;
     gap: 6px;
+  }
+
+  &__price-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   &__title {
@@ -66,35 +142,36 @@ export default {
     color: var(--font-third-color);
   }
 
-  &__category {
-    cursor: pointer;
-    position: relative;
-    width: 100%;
-    padding: 5px 0px 5px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: var(--font-size-navigation);
-    line-height: 100%;
-    color: var(--sixth-color);
-
-    &:hover {
-      color: var(--fifth-color);
-    }
-
-    &:hover &-img svg path {
-      stroke: var(--fifth-color);
-    }
+  &__slider {
+    margin-left: 10px;
   }
 
-  &__category-img {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    left: 0px;
+  &__button-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #apply-sidebar,
+  #reset-sidebar {
+    padding: 7px 7%;
+    border-radius: 6px;
+    background-color: var(--fifth-color);
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: var(--font-size-button);
+    line-height: 100%;
+    color: var(--first-color);
+  }
+  #reset-sidebar {
+    background-color: var(--second-color);
+  }
+
+  &__banner {
+    width: 100%;
+    max-width: 310px;
+    height: max-content;
+    margin-top: 40px;
   }
 }
 </style>

@@ -89,11 +89,13 @@ export default {
 .slider-block {
   position: relative;
   width: var(--slider-width);
+  max-width: var(--max-width-block-global);
   height: 450px;
   background-color: var(--slider-bg-color);
 
   &__wrapper {
     width: var(--slider-width);
+    max-width: var(--max-width-block-global);
     height: 100%;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;

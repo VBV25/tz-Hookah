@@ -3,19 +3,29 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   data() {
     return {};
   },
-  methods: {
-    ...mapActions({
-      loadProductsData: 'productsStore/loadProductsData',
+  computed: {
+    ...mapGetters({
+      getProductsData: 'productsStore/getProductsData',
     }),
   },
-  created() {
-    this.loadProductsData();
+  methods: {
+    ...mapActions({
+      setCurrentProductsList: 'productsStore/setCurrentProductsList',
+      setSortedProductsList: 'productsStore/setSortedProductsList',
+      loadProductsData: 'productsStore/loadProductsData',
+      filterProducts: 'productsStore/filterProducts',
+    }),
+  },
+  async created() {
+    await this.loadProductsData();
+    await this.setSortedProductsList(this.getProductsData);
+    await this.filterProducts('exclusiveProducts');
   },
 };
 </script>
@@ -27,6 +37,8 @@ export default {
   height: max-content;
 
   display: grid;
+  align-items: center;
+  justify-items: center;
   grid-template-columns: 100%;
   grid-template-rows: max-content 1fr max-content;
 }

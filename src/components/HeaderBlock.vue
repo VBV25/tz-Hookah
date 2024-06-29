@@ -1,13 +1,15 @@
 <template>
   <section class="header">
-    <div class="header__logo-wrapper">
-      <img class="header__logo" src="@/assets/img/header/logo.png" alt="Логотип компании" />
-    </div>
-    <navigation-list :navList="$store.state.textStore.headerNavigation" />
-    <div class="header__button-group">
-      <base-button class="header__icon-button" :buttonData="dataSearchButton" />
-      <base-button class="header__icon-button" :buttonData="dataCartButton" />
-      <base-button class="header__icon-button" :buttonData="dataEntryButton" />
+    <div class="header__container">
+      <div class="header__logo-wrapper">
+        <img class="header__logo" src="@/assets/img/header/logo.png" alt="Логотип компании" />
+      </div>
+      <navigation-list :navList="$store.state.textStore.headerNavigation" />
+      <div class="header__button-group">
+        <base-button class="header__icon-button" :buttonData="dataSearchButton" />
+        <base-button class="header__icon-button" :buttonData="dataCartButton" />
+        <base-button class="header__icon-button" :buttonData="dataEntryButton" />
+      </div>
     </div>
   </section>
 </template>
@@ -28,9 +30,6 @@ export default {
         id: 'search-button',
         img: 'search.svg',
         text: '',
-        callback: () => {
-          console.log('search');
-        },
       },
       dataCartButton: {
         id: 'cart-button',
@@ -38,17 +37,11 @@ export default {
         text: '',
         auxiliaryBlock: 'counter',
         auxiliaryBlockData: 0,
-        callback: () => {
-          console.log('cart');
-        },
       },
       dataEntryButton: {
         id: 'entry-button',
         img: 'Logout.svg',
         text: 'Вход',
-        callback: () => {
-          console.log('entry');
-        },
       },
     };
   },
@@ -61,24 +54,31 @@ export default {
 
 <style lang="scss">
 .header {
-  position: relative;
   width: 100%;
   height: max-content;
   padding: 0px var(--side-margins-base) !important;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: var(--side-margins-base);
-    bottom: 0px;
-    width: calc(100vw - var(--side-margins-base) * 2);
-    height: 1px;
-    opacity: 0.8;
-    background-color: var(--fifth-color);
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: var(--max-width-block-global);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      height: 1px;
+      opacity: 0.8;
+      background-color: var(--fifth-color);
+    }
   }
 
   &__logo-wrapper {

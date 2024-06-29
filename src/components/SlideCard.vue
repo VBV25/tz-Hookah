@@ -37,6 +37,7 @@ export default {
   position: relative;
   box-sizing: border-box;
   width: var(--slider-width);
+  max-width: var(--max-width-block-global);
   height: 100%;
   padding: 10px 30px;
   display: flex;

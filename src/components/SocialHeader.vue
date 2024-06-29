@@ -37,11 +37,14 @@ export default {
 .social-header {
   width: 100%;
   height: max-content;
+  display: flex;
+  justify-content: center;
   padding: 10px var(--side-margins-base);
   background-color: var(--third-color);
 
   &__container {
     width: 100%;
+    max-width: var(--max-width-block-global);
     height: max-content;
 
     display: flex;

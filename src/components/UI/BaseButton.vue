@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="button" @click="performAction(buttonData?.callback)" :id="buttonData.id">
+  <button type="button" class="button" :id="buttonData.id">
     <img v-if="buttonData.img" class="button__img" :src="getImageUrlSlider(buttonData.img)" alt="icon" />
     <p v-if="buttonData.text" class="button__text">{{ buttonData.text }}</p>
     <div v-if="buttonData?.auxiliaryBlock" :class="'button__' + buttonData.auxiliaryBlock">{{ buttonData.auxiliaryBlockData }}</div>
@@ -21,12 +21,6 @@ export default {
   methods: {
     getImageUrlSlider(imageName) {
       return require(`@/assets/img/buttons/${imageName}`);
-    },
-
-    performAction(callback) {
-      if (callback) {
-        callback();
-      }
     },
   },
 };
