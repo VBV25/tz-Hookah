@@ -71,6 +71,7 @@ export default {
       setCurrentProductsList: 'productsStore/setCurrentProductsList',
       setSortedProductsList: 'productsStore/setSortedProductsList',
       filterProducts: 'productsStore/filterProducts',
+      setCurrentPage: 'productsStore/setCurrentPage',
     }),
 
     updatePriceRange(newPriceRange) {
@@ -87,7 +88,7 @@ export default {
         return matchesPrice && matchesCategory && matchesSubcategory;
       });
 
-      //this.setCurrentProductsList(filteredProducts);
+      this.setCurrentPage(1);
       this.setSortedProductsList(filteredProducts);
       this.filterProducts('exclusiveProducts');
     },

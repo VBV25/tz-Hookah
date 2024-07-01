@@ -7,12 +7,18 @@
         <base-button class="products-container__button-product-display" :buttonData="dataProductDisplayHorizont" />
       </div>
     </div>
-    <div class="products-container__wrapper">
+    <div v-if="paginatedProducts.length > 0" class="products-container__wrapper">
       <product-card v-for="product in paginatedProducts" :key="product.id" :product="product" />
     </div>
+    <div v-else class="products-container__error-text">В данной категории нет товаров. Выберете вкладку - "Все товары".</div>
     <div class="products-container__pagination">
-      <button v-for="page in totalPages" :key="page" @click="changePage(page)"
-        :class="{ active: getCurrentPage === page }" class="products-container__pagination-button">
+      <button
+        v-for="page in totalPages"
+        :key="page"
+        @click="changePage(page)"
+        :class="{ active: getCurrentPage === page }"
+        class="products-container__pagination-button"
+      >
         {{ page }}
       </button>
     </div>
@@ -52,7 +58,7 @@ export default {
   computed: {
     ...mapGetters({
       getProductsData: 'productsStore/getCurrentProductsList',
-      getCurrentPage: 'productsStore/getCurrentPage'
+      getCurrentPage: 'productsStore/getCurrentPage',
     }),
     paginatedProducts() {
       const start = (this.getCurrentPage - 1) * this.itemsPerPage;
@@ -65,16 +71,11 @@ export default {
   },
   methods: {
     ...mapActions({
-      setCurrentPage: 'productsStore/setCurrentPage'
+      setCurrentPage: 'productsStore/setCurrentPage',
     }),
     changePage(page) {
       this.setCurrentPage(page);
     },
-  },
-  mounted() {
-    // console.log( this.getCurrentPage);
-
-    // this.getCurrentPage = this.getCurrentPage
   },
 };
 </script>
@@ -110,6 +111,16 @@ export default {
     grid-template-rows: repeat(3, max-content);
     row-gap: 20px;
     column-gap: 10px;
+  }
+
+  &__error-text {
+    width: 100%;
+    padding: 50px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: var(--font-size-h2);
+    line-height: 100%;
+    color: var(--font-third-color);
   }
 
   // @media screen and (max-width: 970px) {
