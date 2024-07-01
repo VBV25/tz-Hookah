@@ -1,6 +1,8 @@
 const dataModule = {
   namespaced: true,
   state: {
+    currentCity: null,
+    startSelectCity: false,
     currentMenuElement: {
       header: 'home',
       products: 'exclusive-products'
@@ -39,10 +41,15 @@ const dataModule = {
       imgProduct: 'sale-produkt.png',
       imgDecoration: 'baner-patterns.svg',
       slogan: '“ВСЕ ЛЕТИМ НА ШАШЛЫНДОС”'
-    }
+    },
+    cityList: ['Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома','Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома','Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома'],
+       
   },
 
   getters: {
+    getCityList: (state) => state.cityList,
+    getStartSelectCity: (state) => state.startSelectCity,
+    getCurrentCity: (state) => state.currentCity,
     socialButtonsData: (state) => state.socialButtonsData,
     sliderContent: (state) => state.sliderContent,
     currentMenuElement: (state) => state.currentMenuElement,
@@ -50,6 +57,12 @@ const dataModule = {
   },
 
   mutations: {
+    setCurrentCity(state, currentCity) {
+      state.currentCity = currentCity;
+    },
+    mutationStartSelectCity(state, start) {
+      state.startSelectCity = start;
+    },
     mutationCurrentMenuElement(state, payload) {
       const { key, value } = payload;
       state.currentMenuElement[key] = value;
@@ -59,6 +72,12 @@ const dataModule = {
   actions: {
     changeCurrentMenuElement({ commit }, data) {
       commit('mutationCurrentMenuElement', data);
+    },
+    changeStartSelectCity({ commit }, data) {
+      commit('mutationStartSelectCity', data);
+    },
+    setCurrentCity({ commit }, city) {
+      commit('setCurrentCity', city);
     },
   },
 };

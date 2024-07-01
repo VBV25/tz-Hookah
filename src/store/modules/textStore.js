@@ -1,8 +1,7 @@
 const textModule = {
     namespaced: true,
     state: {
-        cityList: ['Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома'],
-        headerNavigation: [
+         headerNavigation: [
             { name: 'Главная', routerLink: '/', id: 'home-page', categoryNavigation: 'router' },
             { name: 'Каталог', routerLink: '/catalog', id: 'catalog', categoryNavigation: 'router' },
             { name: 'Блог', routerLink: '/blog', id: 'blog', categoryNavigation: 'router' },

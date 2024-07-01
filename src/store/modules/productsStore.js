@@ -12,6 +12,7 @@ const productsModule = {
     priceRange: [0, 15000],
     currentCategoryName: '',
     currentSubcategoryName: '',
+    currentPage: 1,
 
     errorText: '',
   },
@@ -26,6 +27,7 @@ const productsModule = {
     getPriceRange: (state) => state.priceRange,
     getCurrentCategoryName: (state) => state.currentCategoryName,
     getCurrentSubcategoryName: (state) => state.currentSubcategoryName,
+    getCurrentPage: (state) => state.currentPage,
     getErrorText: (state) => state.errorText,
   },
 
@@ -50,6 +52,9 @@ const productsModule = {
     },
     setCurrentSubcategoryName(state, currentSubcategoryName) {
       state.currentSubcategoryName = currentSubcategoryName;
+    },
+    setCurrentPage(state, currentPage) {
+      state.currentPage = currentPage;
     },
     changeErrorText(state, newErrorText) {
       state.errorText = newErrorText;
@@ -156,6 +161,9 @@ const productsModule = {
     },
     setCurrentProductsList({ commit }, products) {
       commit('SET_CURRENT_PRODUCTS_LIST', products);
+    },
+    setCurrentPage({ commit }, page) {
+      commit('setCurrentPage', page);
     },
     setSortedProductsList({ commit }, products) {
       commit('SET_SORTED_PRODUCTS_LIST', products);

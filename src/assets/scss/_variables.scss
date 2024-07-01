@@ -23,7 +23,7 @@
 
   //---РАЗМЕРЫ ШРИФТОВ---
   --font-size-h1: 70px;
-  --font-size-h2: 22px;
+  --font-size-h2: 20px;
   --font-size-h3: 18px;
   --font-size-h4: 16px;
   --font-size-h5: 14px;
@@ -54,6 +54,11 @@
   --max-width-sidebar: 270px;
 }
 
+@media screen and (max-width: 1116px) {
+   :root{--side-margins-base: 2vw;
+    --slider-width: 98vw;}
+  }
+
 /*
 СПИСКИ ГОРОДОВ
 Москва Киров Пермь Казань Сыктывкар Нижний Новгород Кострома
@@ -80,29 +85,7 @@ line-height: 172%;
 color: #000;
 //
 //
-//
-уточнение города
-border-radius: 6px;
-width: 249px;
-height: 106px;
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 16px;
-line-height: 116%;
-color: var(--x);
-text-decoration: underline;
-text-decoration-skip-ink: none;
-,
-кнопка
-border-radius: 6px;
-padding: 7px 26px;
-width: 93px;
-height: 33px;
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 16px;
-line-height: 116%;
-color: var(--x);
+/
 
 
 -----ВЫБОР ОТОБРАЖЕНИЯ ЭЛЕМЕНТОВ

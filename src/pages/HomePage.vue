@@ -67,12 +67,12 @@ export default {
 }
 
 .content-product {
-  width: 100%;
+  width: var(--slider-width);
+  max-width: var(--max-width-block-global);
   height: max-content;
-
-  display: grid;
-  grid-template-rows: max-content;
-  grid-template-columns: max-content 1fr;
-  column-gap: 40px;
+  
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4%;
 }
 </style>

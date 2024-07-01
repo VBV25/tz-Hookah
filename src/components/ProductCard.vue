@@ -41,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 .product-card {
   position: relative;
-  width: 30vw;
+  width: 100%;
   max-width: calc((var(--max-width-block-global) - var(--max-width-sidebar)) / 4);
   padding: 10px;
 

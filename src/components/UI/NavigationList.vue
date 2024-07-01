@@ -38,7 +38,8 @@ export default {
   methods: {
     ...mapActions({
       changeCurrentMenuElement: 'dataStore/changeCurrentMenuElement',
-      filterProducts: 'productsStore/filterProducts', // экшн для фильтрации продуктов
+      filterProducts: 'productsStore/filterProducts',
+      setCurrentPage:'productsStore/setCurrentPage'
     }),
 
     handleNavigationClick(element) {
@@ -48,6 +49,7 @@ export default {
       }
 
       if (element.categoryNavigation === 'products') {
+        this.setCurrentPage(1)
         this.filterProducts(element.id);
         this.changeCurrentMenuElement({ key: 'products', value: element.id });
       }

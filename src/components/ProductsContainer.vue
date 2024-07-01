@@ -11,13 +11,8 @@
       <product-card v-for="product in paginatedProducts" :key="product.id" :product="product" />
     </div>
     <div class="products-container__pagination">
-      <button
-        v-for="page in totalPages"
-        :key="page"
-        @click="changePage(page)"
-        :class="{ active: currentPage === page }"
-        class="products-container__pagination-button"
-      >
+      <button v-for="page in totalPages" :key="page" @click="changePage(page)"
+        :class="{ active: getCurrentPage === page }" class="products-container__pagination-button">
         {{ page }}
       </button>
     </div>
@@ -25,7 +20,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 import NavigationList from '@/components/UI/NavigationList.vue';
 import BaseButton from '@/components/UI/BaseButton.vue';
@@ -50,16 +45,17 @@ export default {
         img: 'grid-list-icon.svg',
         text: '',
       },
-      currentPage: 1,
+      // currentPage: this.getCurrentPage,
       itemsPerPage: 9,
     };
   },
   computed: {
     ...mapGetters({
       getProductsData: 'productsStore/getCurrentProductsList',
+      getCurrentPage: 'productsStore/getCurrentPage'
     }),
     paginatedProducts() {
-      const start = (this.currentPage - 1) * this.itemsPerPage;
+      const start = (this.getCurrentPage - 1) * this.itemsPerPage;
       const end = start + this.itemsPerPage;
       return this.getProductsData.slice(start, end);
     },
@@ -68,13 +64,17 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      setCurrentPage: 'productsStore/setCurrentPage'
+    }),
     changePage(page) {
-      this.currentPage = page;
+      this.setCurrentPage(page);
     },
   },
   mounted() {
-    // Получение данных из getters и вывод в консоль
-    console.log('Products Data:', this.getProductsData);
+    // console.log( this.getCurrentPage);
+
+    // this.getCurrentPage = this.getCurrentPage
   },
 };
 </script>
@@ -87,9 +87,7 @@ export default {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-
-  column-gap: 10px;
-  row-gap: 20px;
+  gap: 15px;
 
   &__header {
     width: 100%;
@@ -101,7 +99,7 @@ export default {
     width: max-content;
     height: max-content;
     display: flex;
-    gap: 5px;
+    gap: 10px;
   }
 
   &__wrapper {
@@ -111,7 +109,15 @@ export default {
     grid-template-columns: repeat(3, max-content);
     grid-template-rows: repeat(3, max-content);
     row-gap: 20px;
+    column-gap: 10px;
   }
+
+  // @media screen and (max-width: 970px) {
+  //   &__wrapper{
+  //     grid-template-columns: repeat(2, max-content);
+  //     grid-template-rows: unset;
+  //   }
+  // }
 
   &__pagination {
     width: 100%;
@@ -124,10 +130,13 @@ export default {
 
   &__pagination-button {
     cursor: pointer;
-    width: 35px;
-    height: 35px;
-    padding: 5px 10px;
+    width: 30px;
+    height: 30px;
     margin: 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     border: 2px solid var(--ninth-color);
 
@@ -138,7 +147,7 @@ export default {
     color: var(--font-third-color);
 
     &.active {
-      border-color: var(--eighth-color);
+      border-color: var(--fifth-color);
       background-color: var(--fifth-color);
       color: var(--font-first-color);
     }

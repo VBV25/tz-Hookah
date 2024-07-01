@@ -108,7 +108,7 @@ export default {
 <style lang="scss">
 .sidebar {
   max-width: var(--max-width-sidebar);
-  min-width: 200px;
+  min-width: 250px;
   width: 25vw;
   min-height: 50vh;
   height: max-content;
