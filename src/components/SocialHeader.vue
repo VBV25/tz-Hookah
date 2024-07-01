@@ -1,8 +1,7 @@
 <template>
   <section class="social-header">
     <div class="social-header__container">
-      <p class="social-header__city" @click="handleCityClick()">{{ getCurrentCity ? getCurrentCity : 'Москва' }}
-      </p>
+      <p class="social-header__city" @click="handleCityClick()">{{ getCurrentCity ? getCurrentCity : 'Москва' }}</p>
       <div class="social-header__button-group">
         <social-button v-for="buttonData in socialButtonsData" :key="buttonData.id" :data="buttonData" />
       </div>
@@ -23,7 +22,9 @@ import SocialButton from '@/components/UI/SocialButton.vue';
 export default {
   name: 'social-header',
   components: {
-    SocialButton, CityClarification, ListCities
+    SocialButton,
+    CityClarification,
+    ListCities,
   },
   data() {
     return {};
@@ -33,17 +34,17 @@ export default {
     ...mapGetters({
       socialButtonsData: 'dataStore/socialButtonsData',
       getCurrentCity: 'dataStore/getCurrentCity',
-       getStartSelectCity: 'dataStore/getStartSelectCity'
+      getStartSelectCity: 'dataStore/getStartSelectCity',
     }),
   },
   methods: {
     ...mapActions({
-      changeStartSelectCity: 'dataStore/changeStartSelectCity'
+      changeStartSelectCity: 'dataStore/changeStartSelectCity',
     }),
     handleCityClick() {
-      this.changeStartSelectCity(true)
-      document.body.classList.add('body-scroll-lock')
-    }
+      this.changeStartSelectCity(true);
+      document.body.classList.add('body-scroll-lock');
+    },
   },
 };
 </script>
@@ -57,7 +58,7 @@ export default {
   padding: 10px var(--side-margins-base);
   background-color: var(--third-color);
 
-  &__container {    
+  &__container {
     z-index: 30;
     position: relative;
     width: 100%;
@@ -74,7 +75,7 @@ export default {
     font-weight: 300;
     color: var(--font-first-color);
     font-family: var(--first-fonts);
-    font-size: var(--font-size-city);
+    font-size: var(--font-size-navigation);
   }
 
   &__button-group {
@@ -97,7 +98,7 @@ export default {
     display: none;
     background-color: rgba(0, 0, 0, 0.522);
 
-    &_visible{
+    &_visible {
       display: block;
     }
   }

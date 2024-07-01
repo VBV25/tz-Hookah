@@ -135,10 +135,6 @@ export default {
   }
 
   .button__text {
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: var(--font-size-button);
-    line-height: 100%;
     color: var(--font-first-color);
   }
 }

@@ -157,10 +157,6 @@ export default {
     padding: 7px 7%;
     border-radius: 6px;
     background-color: var(--fifth-color);
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: var(--font-size-button);
-    line-height: 100%;
     color: var(--first-color);
   }
   #reset-sidebar {

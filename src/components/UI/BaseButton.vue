@@ -33,5 +33,10 @@ export default {
   justify-content: center;
   gap: 5px;
   background-color: unset;
+
+  font-size: var(--font-size-button);
+  font-family: var(--font-family);
+  font-weight: 400;
+  line-height: 100%;
 }
 </style>

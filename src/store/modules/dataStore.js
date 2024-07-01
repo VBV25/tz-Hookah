@@ -42,11 +42,37 @@ const dataModule = {
       imgDecoration: 'baner-patterns.svg',
       slogan: '“ВСЕ ЛЕТИМ НА ШАШЛЫНДОС”'
     },
-    cityList: ['Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома','Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома','Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома'],
-       
+    cityList: ['Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома', 'Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома', 'Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома'],
+    infoCardContent: [
+      {
+        id: 'info-merch',
+        title: 'Наш мерч',
+        description: 'We are an online plant shop offering a wide range of cheap and trendy plants',
+        imgContent: 'girl.png',
+        router: '',
+        buttonContent: {
+          id: 'transition-merch',
+          img: 'arrow-right.svg',
+          text: 'Перейти',
+        },
+      },
+      {
+        id: 'info-hookah',
+        title: 'Кальянные смеси &Кальяны',
+        description: 'We are an online plant shop offering a wide range of cheap and trendy plants',
+        imgContent: 'hookah.png',
+        router: '',
+        buttonContent: {
+          id: 'transition-hookah',
+          img: 'arrow-right.svg',
+          text: 'Перейти',
+        },
+      },
+    ]
   },
 
   getters: {
+    getInfoCardContent: (state) => state.infoCardContent,
     getCityList: (state) => state.cityList,
     getStartSelectCity: (state) => state.startSelectCity,
     getCurrentCity: (state) => state.currentCity,

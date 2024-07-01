@@ -1,9 +1,18 @@
 <template>
   <div class="product-card">
-    <div class="product-card__image-wrapper">
-      <img :src="product.img" alt="product image" class="product-card__image" />
-      <div v-if="product.sale" class="product-card__sale">{{ 'SALE ' + product.sale }}</div>
-      <div v-if="product.newProduct" class="product-card__new">NEW</div>
+    <div class="product-card__img-wrapper">
+      <img :src="product.img" alt="product img" class="product-card__img" />
+      <img src="@/assets/img/heart.svg" class="product-card__like" alt="Лайк" />
+      <div class="product-card__banner">
+        <div v-if="product.newProduct" class="product-card__new">NEW</div>
+        <div v-if="product.sale" class="product-card__sale">{{ product.sale + ' SALE' }}</div>
+      </div>
+      <div class="product-card__button-interaction">
+        <base-button :buttonData="addCart" class="product-card__button" />
+        <div class="product-card__ellipse" id="plus-product">-</div>
+        <div class="product-card__count">1</div>
+        <div class="product-card__ellipse" id="minus-product">+</div>
+      </div>
     </div>
     <div class="product-card__info">
       <h3 class="product-card__name">{{ product.name }}</h3>
@@ -18,6 +27,8 @@
 </template>
 
 <script>
+import BaseButton from '@/components/UI/BaseButton.vue';
+
 export default {
   name: 'ProductCard',
   props: {
@@ -25,6 +36,16 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  components: { BaseButton },
+  data() {
+    return {
+      addCart: {
+        id: `add-cart ${this.product.id}`,
+        img: '',
+        text: 'В корзину',
+      },
+    };
   },
   methods: {
     formattedPrice(value) {
@@ -43,36 +64,51 @@ export default {
   position: relative;
   width: 100%;
   max-width: calc((var(--max-width-block-global) - var(--max-width-sidebar)) / 4);
-  padding: 10px;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
-  background-color: var(--eighth-color);
+  justify-content: start;
+  gap: 15px;
 
   &:hover {
-    box-shadow: 0 0 29px 0 rgba(106, 106, 106, 0.19);
-    .product-card__image {
+    .product-card__img {
       transform: scale(1.15);
+    }
+
+    .product-card__img-wrapper {
+      box-shadow: 0 0 29px 0 rgba(106, 106, 106, 0.19);
+      border-top: 1px solid var(--fifth-color);
+      background-color: var(--first-color);
+    }
+
+    .product-card__button-interaction,
+    .product-card__like {
+      opacity: 1;
+      visibility: visible;
     }
   }
 
-  &__image-wrapper {
+  &__img-wrapper {
     position: relative;
+    background-color: var(--eighth-color);
   }
 
-  &__image {
+  &__img {
     width: 100%;
+    padding: 10px 0px;
     height: auto;
     transition: all 0.2s linear;
   }
 
+  &__banner {
+    position: absolute;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
   &__new,
   &__sale {
-    position: absolute;
-    top: -10px;
-    right: -10px;
     width: max-content;
     height: max-content;
     padding: 5px;
@@ -89,13 +125,26 @@ export default {
     color: var(--first-color);
   }
 
+  &__like {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s linear;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
   &__sale {
-    top: -10px;
-    left: -10px;
     background-color: var(--fifth-color);
   }
 
   &__info {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -126,6 +175,47 @@ export default {
     &-sale {
       margin-right: 10px;
     }
+  }
+
+  &__button-interaction {
+    width: 100%;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--font-first-color);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s linear;
+  }
+
+  &__ellipse {
+    cursor: pointer;
+    width: 21px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 29px;
+    background-color: var(--ninth-color);
+  }
+
+  &__button {
+    width: 130px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background-color: var(--fifth-color);
+    color: var(--font-first-color);
+  }
+
+  &__count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-third-color);
   }
 }
 </style>

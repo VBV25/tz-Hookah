@@ -106,11 +106,6 @@ export default {
     padding: 9px 26px;
     border-radius: 6px;
     background-color: var(--fifth-color);
-
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: var(--font-size-button);
-    line-height: 116%;
     color: var(--font-first-color);
   }
 
@@ -126,6 +121,7 @@ export default {
     align-items: center;
     overflow: hidden;
   }
+
   &__product-img {
     width: 100%;
     height: auto;

@@ -9,6 +9,10 @@
       <side-bar />
       <products-container />
     </section>
+    <section class="product-information">
+      <info-card v-for="infoCard in getInfoCardContent" :key="infoCard.id" :dataInfoCard="infoCard" />
+    </section>
+    <section class="blog"></section>
   </main>
   <footer-block />
 </template>
@@ -21,6 +25,7 @@ import HeaderBlock from '@/components/HeaderBlock.vue';
 import SliderBlock from '@/components/SliderBlock.vue';
 import SideBar from '@/components/SideBar.vue';
 import ProductsContainer from '@/components/ProductsContainer.vue';
+import InfoCard from '@/components/UI/InfoCard.vue';
 import FooterBlock from '@/components/FooterBlock.vue';
 
 export default {
@@ -31,6 +36,7 @@ export default {
     SliderBlock,
     ProductsContainer,
     SideBar,
+    InfoCard,
     FooterBlock,
   },
   data() {
@@ -39,6 +45,7 @@ export default {
   computed: {
     ...mapGetters({
       currentMenuElement: 'dataStore/currentMenuElement',
+      getInfoCardContent: 'dataStore/getInfoCardContent',
     }),
   },
   methods: {
@@ -70,9 +77,18 @@ export default {
   width: var(--slider-width);
   max-width: var(--max-width-block-global);
   height: max-content;
-  
+
   display: flex;
   flex-wrap: nowrap;
   gap: 4%;
+}
+
+.product-information {
+  width: var(--slider-width);
+  max-width: var(--max-width-block-global);
+  height: max-content;
+  margin-top: 150px;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

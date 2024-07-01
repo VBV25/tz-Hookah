@@ -34,7 +34,6 @@
   --font-size-third: 16px;
   --font-size-button: 16px;
   --font-size-navigation: 15px;
-  --font-size-city: 12px;
   --font-small: 12px;
 
   //---ШРИФТЫ---
@@ -55,106 +54,21 @@
 }
 
 @media screen and (max-width: 1116px) {
-   :root{--side-margins-base: 2vw;
-    --slider-width: 98vw;}
+  :root {
+    --side-margins-base: 2vw;
+    --slider-width: 98vw;
   }
+}
 
 /*
-СПИСКИ ГОРОДОВ
-Москва Киров Пермь Казань Сыктывкар Нижний Новгород Кострома
-Москва Киров Пермь Казань Сыктывкар Нижний Новгород Кострома
-Москва Киров Пермь Казань Сыктывкар Нижний Новгород Кострома
-
-width: 671px;
-height: 358px; 
-title
-font-family: var(--font-family);
-font-weight: 700;
-font-size: 20px;
-line-height: 117%;
-color: #000;
-
-list-el
-font-family: var(--font-family);
-font-weight: 500;
-font-size: 16px;
-line-height: 116%;
-color: var(--x);
-font-weight: 400;
-line-height: 172%;
-color: #000;
-//
-//
-/
-
 
 -----ВЫБОР ОТОБРАЖЕНИЯ ЭЛЕМЕНТОВ
-23px
-
-----card--active
-width: 258px;
-height: 300px;
-box-shadow: 0 0 29px 0 rgba(106, 106, 106, 0.19);
-background: #fbfbfb;
 
 ---like
 width: 35px;
 height: 35px;
 
 
-price
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 18px;
-line-height: 89%;
-color: var(--x);
-
-button
-border-radius: 6px;
-padding: 7px 26px;
-width: 138px;
-height: 33px;
-
-.............+ and -
-button
-border-radius: 29px;
-width: 21px;
-height: 25px;
-
-border: 2px solid var(--x);
-width: 7px;
-height: 0px;
-
-text
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 18px;
-line-height: 103%;
-color: #3d3d3d;
-// 
-// 
-// 
-// 
-
-
-// 
-// 
-// 
-----pages pagination
-border-radius: 4px;
-width: 35px;
-height: 35px;
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 18px;
-line-height: 89%;
-color: var(--x);
-
-
-// 
-// 
-// 
-// 
 // 
 
 
