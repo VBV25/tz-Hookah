@@ -12,7 +12,9 @@
     <section class="product-information">
       <info-card v-for="infoCard in getInfoCardContent" :key="infoCard.id" :dataInfoCard="infoCard" />
     </section>
-    <section class="blog"></section>
+    <section class="blog">
+      <blog-block />
+    </section>
   </main>
   <footer-block />
 </template>
@@ -25,7 +27,9 @@ import HeaderBlock from '@/components/HeaderBlock.vue';
 import SliderBlock from '@/components/SliderBlock.vue';
 import SideBar from '@/components/SideBar.vue';
 import ProductsContainer from '@/components/ProductsContainer.vue';
-import InfoCard from '@/components/UI/InfoCard.vue';
+import InfoCard from '@/components/InfoCard.vue';
+import BlogBlock from '@/components/BlogBlock.vue';
+
 import FooterBlock from '@/components/FooterBlock.vue';
 
 export default {
@@ -37,6 +41,7 @@ export default {
     ProductsContainer,
     SideBar,
     InfoCard,
+    BlogBlock,
     FooterBlock,
   },
   data() {
@@ -57,6 +62,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin sizeBlock {
+  width: var(--slider-width);
+  max-width: var(--max-width-block-global);
+  height: max-content;
+
+  display: flex;
+}
+
 .header-wrapper {
   width: 100%;
   height: max-content;
@@ -66,29 +79,31 @@ export default {
   width: 100%;
   max-width: var(--max-width-block-global);
   height: max-content;
+
   padding: 10px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 
 .content-product {
-  width: var(--slider-width);
-  max-width: var(--max-width-block-global);
-  height: max-content;
-
-  display: flex;
+  @include sizeBlock;
   flex-wrap: nowrap;
   gap: 4%;
 }
 
 .product-information {
-  width: var(--slider-width);
-  max-width: var(--max-width-block-global);
-  height: max-content;
+  @include sizeBlock;
   margin-top: 150px;
-  display: flex;
   justify-content: space-between;
+}
+
+.blog{
+  @include sizeBlock;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
 }
 </style>

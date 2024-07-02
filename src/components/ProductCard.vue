@@ -9,9 +9,9 @@
       </div>
       <div class="product-card__button-interaction">
         <base-button :buttonData="addCart" class="product-card__button" />
-        <div class="product-card__ellipse" id="plus-product">-</div>
-        <div class="product-card__count">1</div>
-        <div class="product-card__ellipse" id="minus-product">+</div>
+        <div class="product-card__ellipse" id="plus-product" @click="minusCount()">-</div>
+        <div class="product-card__count">{{count}}</div>
+        <div class="product-card__ellipse" id="minus-product" @click="plusCount()">+</div>
       </div>
     </div>
     <div class="product-card__info">
@@ -30,14 +30,14 @@
 import BaseButton from '@/components/UI/BaseButton.vue';
 
 export default {
-  name: 'ProductCard',
+  name: 'product-card',
+  components: { BaseButton },
   props: {
     product: {
       type: Object,
       required: true,
     },
   },
-  components: { BaseButton },
   data() {
     return {
       addCart: {
@@ -45,6 +45,7 @@ export default {
         img: '',
         text: 'В корзину',
       },
+      count: 1,
     };
   },
   methods: {
@@ -55,6 +56,14 @@ export default {
         .replace('₽', '₽')
         .replace(/\s/g, '\u00A0');
     },
+    minusCount(){
+      if(this.count > 0){
+        this.count -= 1
+      }
+    },
+    plusCount(){
+      this.count += 1
+    }
   },
 };
 </script>

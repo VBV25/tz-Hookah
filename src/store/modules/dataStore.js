@@ -2,11 +2,14 @@ const dataModule = {
   namespaced: true,
   state: {
     currentCity: null,
+
     startSelectCity: false,
+
     currentMenuElement: {
       header: 'home',
       products: 'exclusive-products'
     },
+
     socialButtonsData: [
       {
         id: 'vk-social-btn',
@@ -42,7 +45,9 @@ const dataModule = {
       imgDecoration: 'baner-patterns.svg',
       slogan: '“ВСЕ ЛЕТИМ НА ШАШЛЫНДОС”'
     },
+
     cityList: ['Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома', 'Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома', 'Москва', 'Киров', 'Пермь', 'Казань', 'Сыктывкар', 'Нижний', 'Новгород', 'Кострома'],
+    
     infoCardContent: [
       {
         id: 'info-merch',
@@ -68,6 +73,61 @@ const dataModule = {
           text: 'Перейти',
         },
       },
+    ],
+
+    blogCardsContent: [
+      {
+        id: 'hookah-history',
+        date: "12 марта",
+        title: "История кальяна: от древности до современности",
+        description: "Узнайте, как кальян стал неотъемлемой частью культуры различных народов и какие изменения он претерпел за много веков.",
+        router: '',
+        img:'Smoking_Main.png',
+        buttonContent: {
+          id: 'read-hookah-history',
+          img: 'arrow-right-black.svg',
+          text: 'Читать',
+        },
+      },
+      {
+        id: 'best-tobaccos',
+        date: "5 апреля",
+        title: "Топ 5 лучших табаков для кальяна этого сезона",
+        description: "В нашем обзоре вы найдете рейтинг популярных табаков для кальяна, которые стоит попробовать в этом сезоне.",
+        router: '',
+        img:'Smoking_Main.png',
+        buttonContent: {
+          id: 'read-best-tobaccos',
+          img: 'arrow-right-black.svg',
+          text: 'Читать',
+        },
+      },
+      {
+        id: 'choose-hookah',
+        date: "18 мая",
+        title: "Как выбрать идеальный кальян для дома",
+        description: "Подробный гид по выбору кальяна: от размера и материала до лучших моделей на рынке.",
+        router: '',
+        img:'Smoking_Main.png',
+        buttonContent: {
+          id: 'read-choose-hookah',
+          img: 'arrow-right-black.svg',
+          text: 'Читать',
+        },
+      },
+      {
+        id: 'hookah-maintenance',
+        date: "7 июня",
+        title: "Советы по поддержанию кальяна в отличном состоянии",
+        description: "Узнайте, как правильно ухаживать за кальяном, чтобы он долго сохранял свой вкус и качество дыма.",
+        router: '',
+        img:'Smoking_Main.png',
+        buttonContent: {
+          id: 'read-hookah-maintenance',
+          img: 'arrow-right-black.svg',
+          text: 'Читать',
+        },
+      },
     ]
   },
 
@@ -80,6 +140,7 @@ const dataModule = {
     sliderContent: (state) => state.sliderContent,
     currentMenuElement: (state) => state.currentMenuElement,
     bannerSaleSidebar: (state) => state.bannerSaleSidebar,
+    getBlogCardsContent: (state) => state.blogCardsContent,
   },
 
   mutations: {

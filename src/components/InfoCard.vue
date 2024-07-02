@@ -52,7 +52,7 @@ export default {
   position: relative;
   width: 48%;
   height: 200px;
-  padding: 30px 20px;
+  padding: 30px 20px !important;
   background-color: var(--eighth-color);
 
   &__content {

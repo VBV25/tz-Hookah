@@ -1,7 +1,7 @@
 const textModule = {
     namespaced: true,
     state: {
-         headerNavigation: [
+        headerNavigation: [
             { name: 'Главная', routerLink: '/', id: 'home-page', categoryNavigation: 'router' },
             { name: 'Каталог', routerLink: '/catalog', id: 'catalog', categoryNavigation: 'router' },
             { name: 'Блог', routerLink: '/blog', id: 'blog', categoryNavigation: 'router' },
@@ -13,6 +13,7 @@ const textModule = {
             { name: 'Новинки', id: 'newProduct', categoryNavigation: 'products' },
             { name: 'Скидки', id: 'sale', categoryNavigation: 'products' }
         ],
+        blogBlock: { title: 'Наш блог', subtitle: 'Мы являемся интернет-магазином кальянов, предлагающим широкий ассортимент современных и по доступной цене кальянов и их комплектующих.' }
     },
 
     getters: {

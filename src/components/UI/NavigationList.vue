@@ -89,10 +89,10 @@ export default {
       &:before {
         content: '';
         position: absolute;
-        bottom: 0px;
+        bottom: 1px;
         left: 0px;
         width: 100%;
-        height: 3px;
+        height: 2px;
         background-color: var(--fifth-color);
       }
     }
